@@ -69,14 +69,91 @@ namespace Klak.Spout
         {
             switch (data.GetDxgiFormat())
             {
+                case DxgiFormat.DXGI_FORMAT_A8_UNORM:
+                    return TextureFormat.Alpha8;
                 case DxgiFormat.DXGI_FORMAT_R8G8B8A8_UNORM:
+                    // TextureFormat.ARGB32
                     return TextureFormat.RGBA32;
+                case DxgiFormat.DXGI_FORMAT_B4G4R4A4_UNORM:
+                    return TextureFormat.ARGB4444;
+                case DxgiFormat.DXGI_FORMAT_B5G6R5_UNORM:
+                    return TextureFormat.RGB565;
+                case DxgiFormat.DXGI_FORMAT_R16_UNORM:
+                    return TextureFormat.R16;
+                case DxgiFormat.DXGI_FORMAT_BC1_UNORM:
+                    // TextureFormat.DXT1Crunched
+                    return TextureFormat.DXT1;
+                case DxgiFormat.DXGI_FORMAT_BC3_UNORM:
+                    // TextureFormat.DXT5Crunched
+                    return TextureFormat.DXT5;
+                case DxgiFormat.DXGI_FORMAT_B8G8R8A8_UNORM:
+                    // TextureFormat.ETC_RGB4
+                    return TextureFormat.BGRA32;
+                case DxgiFormat.DXGI_FORMAT_R16_FLOAT:
+                    return TextureFormat.RHalf;
+                case DxgiFormat.DXGI_FORMAT_R16G16_FLOAT:
+                    return TextureFormat.RGHalf;
+                case DxgiFormat.DXGI_FORMAT_R16G16B16A16_FLOAT:
+                    return TextureFormat.RGBAHalf;
+                case DxgiFormat.DXGI_FORMAT_R32_FLOAT:
+                    return TextureFormat.RFloat;
+                case DxgiFormat.DXGI_FORMAT_R32G32_FLOAT:
+                    return TextureFormat.RGFloat;
+                case DxgiFormat.DXGI_FORMAT_R32G32B32A32_FLOAT:
+                    return TextureFormat.RGBAFloat;
+                case DxgiFormat.DXGI_FORMAT_YUY2:
+                    return TextureFormat.YUY2;
+                case DxgiFormat.DXGI_FORMAT_R9G9B9E5_SHAREDEXP:
+                    return TextureFormat.RGB9e5Float;
+                case DxgiFormat.DXGI_FORMAT_BC6H_UF16:
+                    return TextureFormat.BC6H;
+                case DxgiFormat.DXGI_FORMAT_BC7_UNORM:
+                    return TextureFormat.BC7;
+                case DxgiFormat.DXGI_FORMAT_BC4_UNORM:
+                    return TextureFormat.BC4;
+                case DxgiFormat.DXGI_FORMAT_BC5_UNORM:
+                    return TextureFormat.BC5;
+                case DxgiFormat.DXGI_FORMAT_R8G8_UNORM:
+                    return TextureFormat.RG16;
+                case DxgiFormat.DXGI_FORMAT_R8_UNORM:
+                    return TextureFormat.R8;
+                case DxgiFormat.DXGI_FORMAT_R16G16_UNORM:
+                    return TextureFormat.RG32;
+                case DxgiFormat.DXGI_FORMAT_R16G16B16A16_UNORM:
+                    return TextureFormat.RGBA64;
 
                 default:
                     var log = $"DXGIFormat:{data.dxgiFormat} is not supported.";
                     Debug.LogError(log);
                     throw new ArgumentException(log);
             }
+
+            // DxgiFormat.DXGI_FORMAT_UNKNOWN
+            // TextureFormat.RGB24
+            // TextureFormat.RGBA4444
+            // TextureFormat.EAC_R
+            // TextureFormat.EAC_RG
+            // TextureFormat.ETC2_RGB
+            // TextureFormat.ETC2_RGBA1
+            // TextureFormat.ETC2_RGBA8
+            // TextureFormat.ASTC_4x4
+            // TextureFormat.ETC_RGB4Crunched
+            // TextureFormat.ETC2_RGBA8Crunched
+            // TextureFormat.ASTC_HDR_4x4
+            // TextureFormat.ASTC_HDR_5x5
+            // TextureFormat.ASTC_HDR_6x6
+            // TextureFormat.ASTC_HDR_8x8
+            // TextureFormat.ASTC_HDR_10x10
+            // TextureFormat.ASTC_HDR_12x12
+            // TextureFormat.RGB48
+
+            // Not supported
+            // TextureFormat.PVRTC_RGB2;
+            // TextureFormat.PVRTC_RGBA2
+            // TextureFormat.PVRTC_RGB4
+            // TextureFormat.PVRTC_RGBA4
+            // TextureFormat.EAC_R_SIGNED
+            // TextureFormat.EAC_RG_SIGNED
         }
     }
 
