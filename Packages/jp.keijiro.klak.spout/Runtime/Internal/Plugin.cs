@@ -69,8 +69,13 @@ namespace Klak.Spout
         {
             switch (data.GetDxgiFormat())
             {
+                case DxgiFormat.DXGI_FORMAT_R8G8B8A8_UNORM:
+                    return TextureFormat.RGBA32;
+
                 default:
-                    throw new ArgumentException($"DXGIFormat:{data.dxgiFormat} is not supported.");
+                    var log = $"DXGIFormat:{data.dxgiFormat} is not supported.";
+                    Debug.LogError(log);
+                    throw new ArgumentException(log);
             }
         }
     }

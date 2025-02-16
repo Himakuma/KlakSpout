@@ -41,7 +41,7 @@ namespace Klak.Spout
             if (Texture == null && data.texturePointer != IntPtr.Zero)
             {
                 Texture = Texture2D.CreateExternalTexture
-                ((int)data.width, (int)data.height, TextureFormat.RGBA32,
+                ((int)data.width, (int)data.height, data.GetTextureFormat(),
                     false, false, data.texturePointer);
             }
 
